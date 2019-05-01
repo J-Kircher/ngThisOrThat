@@ -1,0 +1,32 @@
+<div class="main-container" fxLayout="column" fxLayoutAlign="space-around center" style="background-color: pink">
+  <div [ngClass]="{ hidden: !showCompare }">
+    <div class="album-container" fxLayout="row" fxLayoutAlign="space-evenly center" style="background-color: green">
+      <app-my-album [albumIdx]="albumOne" (chosen)="onChosen($event)"></app-my-album>
+      <app-my-album [albumIdx]="albumTwo" (chosen)="onChosen($event)"></app-my-album>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" style="background-color: blueviolet">
+      <button mat-raised-button color="primary" (click)="getNewAlbums()">Reset</button>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" style="background-color: blueviolet">
+      <button mat-raised-button color="primary" (click)="toggleCompare()">Go to Summary</button>
+    </div>
+  </div>
+  <div [ngClass]="{ hidden: showCompare }">
+    <div>
+      Summary
+      <div *ngFor="let album of sortedAlbums">
+        Wins: {{ album.wins || 0 }} Losses: {{ album.losses || 0 }} {{ album.title }}
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" style="background-color: blueviolet">
+      <button mat-raised-button color="primary" (click)="toggleCompare()">Go to Compare</button>
+    </div>
+  </div>
+</div>
+<!--
+  fxFlex.xs="0 0 calc(100% -12px)"
+  fxFlex.sm="0 0 calc(50% -12px)"
+  fxFlex.md="0 0 calc(33% -12px)"
+  fxFlex.lg="0 0 calc(25% -12px)"
+  fxFlex.xl="0 0 calc(20% -12px)"
+-->

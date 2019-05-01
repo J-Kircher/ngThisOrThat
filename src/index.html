@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NgThisOrThat</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>
+    <style>
+      #loading-well {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: auto;
+        height: auto;
+        border-radius: 0.5em;
+        padding: 0.5em 1.5em;
+        background-color: #0019f9;
+        color: #c731cc;
+        font-size: 1em;
+        font-weight: bold;
+        font-style: italic;
+        transform: translateX(-50%);
+      }
+      #loading-font {
+        float: right;
+        padding: 1em 0;
+        color: #00bff9;
+        font-size: 1em;
+        font-family: Arial, "Avenir Next", "Helvetica Neue", Calibri, Helvetica, sans-serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+      #loader {
+        font-size: 1em;
+        float: left;
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0.75em auto;
+        border: 0.5em solid #c731cc;
+        border-left: 0.5em solid #00bff9;
+        border-radius: 50%;
+        transform: translateZ(0);
+        animation: loader 1.3s infinite linear;
+        position: relative;
+      }
+      @-webkit-keyframes loader {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes loader {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .one {
+        font-size: 1.5em;
+        opacity: 0;
+        animation: dot 1.3s infinite;
+        animation-delay: 0.0s;
+      }
+      .two {
+        font-size: 1.5em;
+        opacity: 0;
+        animation: dot 1.3s infinite;
+        animation-delay: 0.2s;
+      }
+      .three {
+        font-size: 1.5em;
+        opacity: 0;
+        animation: dot 1.3s infinite;
+        animation-delay: 0.4s;
+      }
+      @-webkit-keyframes dot {
+        0% { opacity: 0; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      @keyframes dot {
+        0% { opacity: 0; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+    </style>
+    <div id="loading-well">
+      <div id="loader"></div>
+      <div id="loading-font">&nbsp; Loading <span class="one">.</span><span class="two">.</span><span class="three">.</span></div>
+    </div>
+  </app-root>
+</body>
+</html>
