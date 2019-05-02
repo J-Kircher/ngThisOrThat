@@ -26,6 +26,8 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
     this.currentAlbums = this.albumsService.getAlbums();
     this.albums = this.storageService.loadFromLocalStorage();
 
+    console.log(this.currentAlbums);
+
     // Add albums added to service into storage
     this.currentAlbums.forEach(a => {
       if (this.findAlbumInArray(a, this.albums) === -1) {
@@ -84,14 +86,15 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
   }
 
   findAlbumInArray(a: IAlbum, arr: IAlbum[]): number {
+    let index = -1;
     arr.forEach((s, idx) => {
       if (a.artist === s.artist
         && a.year === s.year
         && a.title === s.title) {
-        return idx;
+        index = idx;
       }
     });
-    return -1;
+    return index;
   }
 
   toggleCompare() {
