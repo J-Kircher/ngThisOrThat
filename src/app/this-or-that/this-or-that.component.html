@@ -7,6 +7,7 @@
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <button mat-raised-button color="primary" (click)="getNewAlbums()">Reset</button>
     </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">Counter: {{matchCounter}}</div>
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <button mat-raised-button color="primary" (click)="toggleCompare()">Go to Summary</button>
     </div>
@@ -20,12 +21,15 @@
             <p>{{album.title}}</p>
             <p>{{album.artist}}</p>
             <p>{{album.year}}</p>
+            <p>Diff: {{album.wins - album.losses}}</p>
+            <p>Pct: {{(album.wins / (album.wins + album.losses) * 1000) / 10}}%</p>
           </span>
         </div>
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <button mat-raised-button color="primary" (click)="toggleCompare()">Go to Compare</button>
+      <button mat-raised-button color="primary" (click)="toggleSort()">Toggle Sort</button>
     </div>
   </div>
 </div>
