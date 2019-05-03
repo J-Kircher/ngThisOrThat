@@ -123,6 +123,16 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
   toggleSort() {
     this.sortPct = !this.sortPct;
   }
+
+  getPct(album: IAlbum) {
+    const wins = album.wins || 0;
+    const losses = album.losses || 0;
+    if ((wins + losses) === 0) {
+      return 0;
+    } else {
+      return (+(wins / (wins + losses)).toFixed(2)) * 100;
+    }
+  }
 }
 
 export function sortAlbumsByPercent(a1: IAlbum, a2: IAlbum) {

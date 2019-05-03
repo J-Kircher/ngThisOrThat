@@ -21,15 +21,15 @@
             <p>{{album.title}}</p>
             <p>{{album.artist}}</p>
             <p>{{album.year}}</p>
-            <p>Diff: {{album.wins - album.losses}}</p>
-            <p>Pct: {{(album.wins / (album.wins + album.losses) * 1000) / 10}}%</p>
+            <p *ngIf="sortPct">Pct: {{getPct(album)}}%</p>
+            <p *ngIf="!sortPct">Diff: {{album.wins - album.losses}}</p>
           </span>
         </div>
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <button mat-raised-button color="primary" (click)="toggleCompare()">Go to Compare</button>
-      <button mat-raised-button color="primary" (click)="toggleSort()">Toggle Sort</button>
+      <button matTooltip="Sorting by {{ sortPct ? 'Percentage' : 'Difference' }}" mat-raised-button color="primary" (click)="toggleSort()">Sort by {{ sortPct ? 'Difference' : 'Percentage' }}</button>
     </div>
   </div>
 </div>
