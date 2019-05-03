@@ -15,6 +15,13 @@
     <div class="summary-container" fxLayout="row wrap">
       <div class="album" [ngClass]="getRankStyle(i)" *ngFor="let album of sortedAlbums; let i = index">
         <img class="cover" src="/assets/images/{{ album.image }}.png">
+        <div class="overlay">
+          <span class="text">
+            <p>{{album.title}}</p>
+            <p>{{album.artist}}</p>
+            <p>{{album.year}}</p>
+          </span>
+        </div>
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-around center">
