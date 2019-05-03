@@ -18,7 +18,7 @@ export class MyAlbumComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    console.log('[my-album] ngInit() albumIdx: ' + this.albumIdx);
+    // console.log('[my-album] ngInit() albumIdx: ' + this.albumIdx);
     this.album = this.albumsService.getAlbumByIdx(this.albumIdx);
   }
 

@@ -9,12 +9,12 @@ export class StorageService {
   constructor(private albumsService: AlbumsService) { }
 
   private getDefaultLocalStorage(): any {
-    console.log('[storage.service] getDefaultLocalStorage()');
+    // console.log('[storage.service] getDefaultLocalStorage()');
     return this.albumsService.getAlbums();
   }
 
   public loadFromLocalStorage(): IAlbum[] {
-    console.log('[storage.service] loadFromLocalStorage()');
+    // console.log('[storage.service] loadFromLocalStorage()');
     let config = this.getDefaultLocalStorage();
 
     try {
@@ -25,7 +25,7 @@ export class StorageService {
       } else {
         this.storeToLocalStorage(config);
       }
-      console.log('[storage.service] loadFromLocalStorage() SUCCESS');
+      // console.log('[storage.service] loadFromLocalStorage() SUCCESS');
     } catch (e) {
       console.warn('[storage.service] loadFromLocalStorage() Error reading from local storage');
     }
@@ -33,7 +33,7 @@ export class StorageService {
   }
 
   public storeToLocalStorage(newalbums: IAlbum[]): void {
-    console.log('[storage.service] storeToLocalStorage()');
+    // console.log('[storage.service] storeToLocalStorage()');
     try {
       const configText = JSON.stringify(newalbums);
       localStorage.setItem('albums', configText);
@@ -43,7 +43,7 @@ export class StorageService {
   }
 
   public clearFromLocalStorage(): Observable<boolean> {
-    console.log('[storage.service] clearFromLocalStorage()');
+    // console.log('[storage.service] clearFromLocalStorage()');
     const subject = new Subject<boolean>();
     localStorage.removeItem('albums');
     setTimeout(() => {

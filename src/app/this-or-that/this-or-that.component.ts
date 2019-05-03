@@ -15,7 +15,7 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
   sortedAlbums: IAlbum[];
   albumOne: number = null;
   albumTwo: number = null;
-  showCompare = true;
+  showCompare = false;
 
   constructor(
     private albumsService: AlbumsService,
@@ -26,7 +26,7 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
     this.currentAlbums = this.albumsService.getAlbums();
     this.albums = this.storageService.loadFromLocalStorage();
 
-    console.log(this.currentAlbums);
+    // console.log(this.currentAlbums);
 
     // Add albums added to service into storage
     this.currentAlbums.forEach(a => {
@@ -48,7 +48,7 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
       if (a.losses === undefined) a.losses= 0;
     });
 
-    console.log('[this-or-that] ngInit() arr len: ' + this.albums.length);
+    // console.log('[this-or-that] ngInit() arr len: ' + this.albums.length);
 
     this.storageService.storeToLocalStorage(this.albums);
     this.getAlbumsForCompare();
@@ -61,9 +61,9 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
 
   getAlbumsForCompare() {
     this.albumOne = this.getRnd(this.albums.length);
-    console.log('[this-or-that] getAlbumsForCompare() albumOne: ' + this.albumOne);
+    // console.log('[this-or-that] getAlbumsForCompare() albumOne: ' + this.albumOne);
     this.albumTwo = this.getRnd(this.albums.length, this.albumOne);
-    console.log('[this-or-that] getAlbumsForCompare() albumTwo: ' + this.albumTwo);
+    // console.log('[this-or-that] getAlbumsForCompare() albumTwo: ' + this.albumTwo);
   }
 
   getRnd(max: number, exclude: number = null): number {
@@ -76,7 +76,7 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
   }
 
   onChosen(album: number) {
-    console.log('[this-or-that] onChosen() album: ' + album);
+    // console.log('[this-or-that] onChosen() album: ' + album);
     const winner = album === this.albumOne ? this.albumOne : this.albumTwo;
     const loser = album === this.albumOne ? this.albumTwo : this.albumOne;
     this.albums[winner].wins == null ? this.albums[winner].wins = 1 : this.albums[winner].wins++;
@@ -99,6 +99,17 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
 
   toggleCompare() {
     this.showCompare = !this.showCompare;
+  }
+
+  getRankStyle(idx: number): string {
+    switch (true) {
+      case (idx < 10):
+        return 'top';
+      case (idx < 22):
+        return 'mid';
+      default:
+        return 'rest';
+    }
   }
 }
 

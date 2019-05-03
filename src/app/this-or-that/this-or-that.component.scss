@@ -6,3 +6,30 @@
 .hidden {
   display: none;
 }
+
+.summary-container {
+  width: 960px;
+}
+
+.album {
+  margin: 4px;
+  padding: 4px;
+  background-color: lightgray;
+
+  &.top {
+    width: calc(20% - 16px);
+  }
+
+  &.mid {
+    width: calc(16.666% - 16px);
+  }
+
+  &.rest {
+    width: calc(10% - 16px);
+  }
+
+  .cover {
+    height: 100%;
+    width: 100%;
+  }
+}
