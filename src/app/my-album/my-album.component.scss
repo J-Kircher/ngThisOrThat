@@ -4,11 +4,23 @@
 }
 
 .album {
-  margin: 24px;
-  padding: 8px;
-  min-height: 200px;
-  min-width: 200px;
-  max-height: 200px;
-  max-width: 200px;
-  background-color: whitesmoke;
+  margin: 100px;
+  min-height: 400px;
+  min-width: 300px;
+  max-height: 400px;
+  max-width: 300px;
+  // background-color: whitesmoke;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  text-shadow: 4px 4px 8px rgb(128, 128, 128);
+  text-align: center;
+}
+
+.cover {
+  // padding: 2px;
+  // border-width: 2px;
+  // border-color: black;
+  height: 300px;
+  width: 300px;
+  box-shadow: 0 8px 12px rgb(128, 128, 128), 0 8px 48px rgb(128, 128, 128);
 }

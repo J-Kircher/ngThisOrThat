@@ -2,7 +2,14 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: gray;
+  // left: 0;
+  // right: 0;
+  height: 100%;
+  width: 100%;
+  // opacity: 0.5;
+  background-color: rgb(39, 39, 39);
+  background-image: url("/assets/images/BigTenInch.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
 }

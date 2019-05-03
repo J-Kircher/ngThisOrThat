@@ -1,8 +1,9 @@
 <div class="container" fxLayout="column" fxLayoutAlign="space-around center">
   <div class="album">
-    <div>Album:</div>
-    <div>{{album.title}} ({{album.year}})</div>
-    <div>by {{album.artist}}</div>
+    <img class="cover" src="/assets/images/{{album.image}}.png">
+    <div>{{album.title}}</div>
+    <div>{{album.artist}}</div>
+    <div>{{album.year}}</div>
   </div>
   <button mat-raised-button color="primary" (click)="choose()">Choose Me!</button>
 </div>
