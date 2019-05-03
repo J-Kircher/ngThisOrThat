@@ -16,6 +16,8 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
   albumOne: number = null;
   albumTwo: number = null;
   showCompare = false;
+  matchCounter = 0;
+  sortPct = true;
 
   constructor(
     private albumsService: AlbumsService,
@@ -46,6 +48,7 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
     this.albums.forEach(a => {
       if (a.wins === undefined) a.wins = 0;
       if (a.losses === undefined) a.losses= 0;
+      this.matchCounter += a.wins;
     });
 
     // console.log('[this-or-that] ngInit() arr len: ' + this.albums.length);
@@ -56,7 +59,11 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.sortedAlbums = JSON.parse(JSON.stringify(this.albums));
-    this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByRating);
+    if (this.sortPct) {
+      this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByPercent);
+    } else {
+      this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByDifference);
+    }
   }
 
   getAlbumsForCompare() {
@@ -81,6 +88,7 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
     const loser = album === this.albumOne ? this.albumTwo : this.albumOne;
     this.albums[winner].wins == null ? this.albums[winner].wins = 1 : this.albums[winner].wins++;
     this.albums[loser].losses == null ? this.albums[loser].losses = 1 : this.albums[loser].losses++;
+    this.matchCounter++;
     this.storageService.storeToLocalStorage(this.albums);
     this.getAlbumsForCompare();
   }
@@ -111,9 +119,13 @@ export class ThisOrThatComponent implements OnInit, DoCheck {
         return 'rest';
     }
   }
+
+  toggleSort() {
+    this.sortPct = !this.sortPct;
+  }
 }
 
-export function sortAlbumsByRating(a1: IAlbum, a2: IAlbum) {
+export function sortAlbumsByPercent(a1: IAlbum, a2: IAlbum) {
   const a1pct = a1.wins / (a1.wins + a1.losses);
   const a2pct = a2.wins / (a2.wins + a2.losses);
   // console.log('comparing ' + a1.title + ' with ' + a2.title);
@@ -122,6 +134,38 @@ export function sortAlbumsByRating(a1: IAlbum, a2: IAlbum) {
     return 1;
   } else {
     if (a1pct > a2pct) {
+      return -1;
+    } else {
+      if (a1.wins < a2.wins) {
+        return 1;
+      } else {
+        if (a1.wins > a2.wins) {
+          return -1;
+        } else {
+          if (a1.losses > a2.losses) {
+            return 1;
+          } else {
+            if (a1.losses < a2.losses) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+export function sortAlbumsByDifference(a1: IAlbum, a2: IAlbum) {
+  const a1diff = a1.wins - a1.losses;
+  const a2diff = a2.wins - a2.losses;
+  // console.log('comparing ' + a1.title + ' with ' + a2.title);
+  // console.log('comparing ' + a1pct + ' with ' + a2pct);
+  if (a1diff < a2diff) {
+    return 1;
+  } else {
+    if (a1diff > a2diff) {
       return -1;
     } else {
       if (a1.wins < a2.wins) {
