@@ -8,67 +8,7 @@
   display: none;
 }
 
-.summary-container {
-  width: 960px;
-}
-
 button {
   margin: 20px;
 }
 
-.album {
-  position: relative;
-  margin: 4px;
-  // padding: 4px;
-  // background-color: lightgray;
-
-  &.top {
-    width: calc(20% - 8px);
-    .text { font-size: 0.9em; }
-  }
-
-  &.mid {
-    width: calc(16.666% - 8px);
-    .text { font-size: 0.7em; }
-  }
-
-  &.rest {
-    width: calc(10% - 8px);
-    .text { font-size: 0.5em; }
-  }
-
-  .cover {
-    display: block;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0 4px 8px rgb(128, 128, 128), 0 4px 16px rgb(128, 128, 128);
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .25s ease-in-out;
-    background-color: rgba(0,0,0,0.8);
-
-    .text {
-      color: white;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-  }
-
-  &:hover .overlay {
-    opacity: 0.8;
-  }
-}
