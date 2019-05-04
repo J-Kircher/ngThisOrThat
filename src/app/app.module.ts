@@ -8,12 +8,16 @@ import { ThisOrThatComponent } from './this-or-that/this-or-that.component';
 import { MyAlbumComponent } from './my-album/my-album.component';
 import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
+import { CompareComponent } from './compare/compare.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThisOrThatComponent,
-    MyAlbumComponent
+    MyAlbumComponent,
+    CompareComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
