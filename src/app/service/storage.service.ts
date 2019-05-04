@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAlbum } from '../model/albums.model';
+import { IAlbum } from '../shared/models/albums.model';
 import { Observable, Subject } from 'rxjs';
 import { AlbumsService } from '../service/albums.service';
 
