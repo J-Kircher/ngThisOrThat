@@ -1,0 +1,10 @@
+<div>
+  <div class="album-container" fxLayout="row" fxLayoutAlign="space-evenly center">
+    <app-my-album [albumIdx]="albumOne" (chosen)="onChosen($event)"></app-my-album>
+    <app-my-album [albumIdx]="albumTwo" (chosen)="onChosen($event)"></app-my-album>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <button mat-raised-button color="primary" (click)="getNewAlbums()">Reset</button>
+  </div>
+  <div class="counter" fxLayout="row" fxLayoutAlign="space-around center">Counter: {{matchCounter}}</div>
+</div>
