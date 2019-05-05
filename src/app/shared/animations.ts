@@ -11,7 +11,7 @@ export const listAnimation =
       // query(':leave', animate('50ms', style({ opacity: 0 })), { optional: true }),
       query(':enter', [
         style({ opacity: 0, transform: 'translateY(20px)' }),
-        stagger('100ms', [
+        stagger('70ms', [
           animate('0.4s', style({ opacity: 1, transform: 'translateY(0px)' }))
         ])
       ], { optional: true })
