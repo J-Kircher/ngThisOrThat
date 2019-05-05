@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IAlbum } from '../shared/models/albums.model';
 import { StorageService } from '../service/storage.service';
 
@@ -7,9 +7,9 @@ import { StorageService } from '../service/storage.service';
   templateUrl: './compare.component.html',
   styleUrls: ['./compare.component.scss']
 })
-export class CompareComponent implements OnInit, OnChanges {
+export class CompareComponent implements OnInit {
 
-  @Input() albums: IAlbum[];
+  albums: IAlbum[];
   albumOne: number = null;
   albumTwo: number = null;
   matchCounter = 0;
@@ -19,19 +19,11 @@ export class CompareComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-  }
-
-  // Respond when Angular (re)sets data-bound input properties.
-  ngOnChanges(changes: SimpleChanges) {
-    if ('albums' in changes) {
-      // console.log('[my-album] ngOnChanges() found a change!');
-      this.albums.forEach(a => {
-        // if (a.wins === undefined) a.wins = 0;
-        // if (a.losses === undefined) a.losses= 0;
-        this.matchCounter += a.wins;
-      });
-      this.getAlbumsForCompare();
-    }
+    this.albums = this.storageService.loadFromLocalStorage();
+    this.albums.forEach(a => {
+      this.matchCounter += a.wins;
+    });
+    this.getAlbumsForCompare();
   }
 
   getAlbumsForCompare() {

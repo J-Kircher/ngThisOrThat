@@ -1,3 +1,17 @@
-.content-wrapper {
-  border: 0;
+.main-container {
+  height: 100%;
+  min-height: 100%;
+  width: 98vw; // elims horiz scrollbar
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  margin: 20px;
+}
+
+.mat-raised-button {
+  margin: 20px 20px 0px 20px;
 }

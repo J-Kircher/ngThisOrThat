@@ -1,5 +1,6 @@
-import { Component, OnInit, DoCheck, Input } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { IAlbum } from '../shared/models/albums.model';
+import { StorageService } from '../service/storage.service';
 import { sortAlbumsByPercent, sortAlbumsByDifference } from '../shared/sort';
 import { listAnimation } from '../shared/animations';
 
@@ -11,14 +12,17 @@ import { listAnimation } from '../shared/animations';
 })
 export class SummaryComponent implements OnInit, DoCheck {
 
-  @Input() albums: IAlbum[];
+  albums: IAlbum[];
   currentAlbums: IAlbum[];
   sortedAlbums: IAlbum[];
   sortPct = true;
 
-  constructor( ) { }
+  constructor(
+    private storageService: StorageService
+  ) { }
 
   ngOnInit() {
+    this.albums = this.storageService.loadFromLocalStorage();
   }
 
   ngDoCheck() {
