@@ -55,7 +55,7 @@ export class SummaryComponent implements OnInit, DoCheck {
     if ((wins + losses) === 0) {
       return 0;
     } else {
-      return (+(wins / (wins + losses)).toFixed(2)) * 100;
+      return ((wins / (wins + losses)) * 100).toFixed(1);
     }
   }
 }
