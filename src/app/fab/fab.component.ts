@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { fabAnimations } from './fab.animations';
 
 @Component({
@@ -12,17 +12,15 @@ export class FabComponent {
   // Fab Component original source
   // https://medium.com/@aphlps/fab-speed-dial-with-angular-5-2-angular-material-be696fc14967
 
+  @Output() result = new EventEmitter<string>();
+
   fabButtons = [
-    { icon: 'timeline' },
-    { icon: 'view_headline' },
-    { icon: 'room' },
-    { icon: 'lightbulb_outline' },
-    { icon: 'lock' }
+    { icon: 'replay', tooltip: 'Reset', action: 'reset' }
   ];
   buttons = [];
   fabTogglerState = 'inactive';
 
-  constructor() { }
+  constructor( ) { }
 
   showItems() {
     this.fabTogglerState = 'active';
@@ -36,5 +34,11 @@ export class FabComponent {
 
   onToggleFab() {
     this.buttons.length ? this.hideItems() : this.showItems();
+  }
+
+  action (action: string) {
+    console.log('action: ' + action);
+    this.result.emit(action);
+    this.hideItems();
   }
 }
