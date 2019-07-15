@@ -44,6 +44,7 @@ const _ALBUMS: IAlbum[] = [
   { 'artist': 'The Velvet Underground', 'title': 'Loaded', 'year': 1970, 'image': 'VULoaded' },
   { 'artist': 'The Velvet Underground', 'title': 'The Velvet Underground', 'year': 1969, 'image': 'VUSelfTitled' },
   { 'artist': 'Wishbone Ash', 'title': 'Argus', 'year': 1972, 'image': 'WishboneAshArgus' },
+  { 'artist': 'Wishbone Two', 'title': 'Argus2', 'year': 1973, 'image': 'WishboneAshArgus' },
 ];
 
 @Injectable()

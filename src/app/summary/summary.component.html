@@ -1,6 +1,6 @@
 <div>
-  <div class="summary-container" fxLayout="row wrap" [@listAnimations]="sortedAlbums.length">
-    <div class="album" [ngClass]="getRankStyle(i)" *ngFor="let album of sortedAlbums; let i = index">
+  <div class="summary-container" fxLayout="row wrap" [@listAnimations]="displayAlbums.length">
+    <div class="album" [ngClass]="getRankStyle(i)" *ngFor="let album of displayAlbums; let i = index">
       <img class="cover" src="/assets/images/{{ album.image }}.png">
       <div class="overlay">
         <span class="text">

@@ -15,7 +15,9 @@ export class SummaryComponent implements OnInit, DoCheck {
   albums: IAlbum[];
   currentAlbums: IAlbum[];
   sortedAlbums: IAlbum[];
+  displayAlbums: IAlbum[];
   sortPct = true;
+  maxDisplayAlbums = 42;
 
   constructor(
     private storageService: StorageService
@@ -31,6 +33,11 @@ export class SummaryComponent implements OnInit, DoCheck {
       this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByPercent);
     } else {
       this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByDifference);
+    }
+    if (this.sortedAlbums.length > this.maxDisplayAlbums) {
+      this.displayAlbums = this.sortedAlbums.splice(0, this.maxDisplayAlbums);
+    } else {
+      this.displayAlbums = this.sortedAlbums;
     }
   }
 
