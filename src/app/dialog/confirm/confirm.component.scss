@@ -1,0 +1,23 @@
+.mat-dialog-title {
+  max-width: 350px;
+  margin-bottom: 28px;
+
+  .title {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    line-height: 1.25em;
+    font-size: .8em;
+    font-style: italic;
+  }
+}
+
+mat-dialog-actions {
+  width: 100%;
+  div {
+    width: 100%;
+  }
+}

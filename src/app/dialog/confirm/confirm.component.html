@@ -1,0 +1,15 @@
+<span mat-dialog-title>
+  <div class="title">{{ data.title }}</div>
+  <div class="subtitle">{{ data?.subtitle }}</div>
+</span>
+<mat-dialog-content fxLayoutAlign="center">
+  Are you sure?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <button id="cancel" mat-flat-button fxFlex="0 0 auto" type="button" color="accent"
+      [mat-dialog-close]="false" (click)="dismiss()">Cancel</button>
+    <button id="confirm" mat-flat-button fxFlex="0 0 auto" type="button" color="primary"
+      [matTooltip]="data.title" (click)="confirm()">Confirm</button>
+  </div>
+</mat-dialog-actions>
