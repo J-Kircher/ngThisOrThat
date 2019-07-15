@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAlbum } from './shared/models/albums.model';
 import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
+import { ConfirmComponent } from './dialog/confirm/confirm.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,9 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private albumsService: AlbumsService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private dialog: MatDialog,
+    private snack: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -69,4 +74,46 @@ export class AppComponent implements OnInit {
     this.showCompare = !this.showCompare;
   }
 
+  onResult(action: string) {
+    console.log('[app] onResult() res: ' + action);
+    switch (action) {
+      case ('reset'):
+        return this.resetStorage();
+      default:
+        return 'n/a';
+    }
+  }
+
+  resetStorage() {
+    console.log('[fab] resetStorage()');
+    this.dialog.open(ConfirmComponent, {
+      data: { title: 'Reset compares' }
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.storageService.clearFromLocalStorage().subscribe(() => {
+          // Do nothing here; wait for complete
+        }, (err) => {
+          console.error('[fab] resetStorage() clearFromLocalStorage() error: ' + err);
+          this.openSnack('Error with reset!');
+        }, () => {
+          console.log('[fab] resetStorage() clearFromLocalStorage() complete');
+          this.openSnack('Reset complete!');
+          this.ngOnInit();
+          setTimeout(() => {
+            this.router.navigateByUrl('/summary');
+          }, 500);
+        });
+      } else {
+        this.openSnack('Reset cancelled!');
+      }
+    });
+  }
+
+  openSnack(msg: string) {
+    this.snack.open(msg, '', {
+      duration: 3000,
+      horizontalPosition: 'start',
+      verticalPosition: 'bottom'
+    });
+  }
 }

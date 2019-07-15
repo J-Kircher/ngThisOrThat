@@ -12,6 +12,8 @@ import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
 import { CompareComponent } from './compare/compare.component';
 import { SummaryComponent } from './summary/summary.component';
+import { FabComponent } from './fab/fab.component';
+import { ConfirmComponent } from './dialog/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,21 @@ import { SummaryComponent } from './summary/summary.component';
     ThisOrThatComponent,
     MyAlbumComponent,
     CompareComponent,
-    SummaryComponent
+    SummaryComponent,
+    FabComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule.forRoot(AppRoutes)
+  ],
+  exports: [
+    ConfirmComponent
+  ],
+  entryComponents: [
+    ConfirmComponent
   ],
   providers: [
     AlbumsService,
