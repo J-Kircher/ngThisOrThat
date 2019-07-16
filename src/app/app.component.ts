@@ -99,6 +99,7 @@ export class AppComponent implements OnInit {
           console.log('[fab] resetStorage() clearFromLocalStorage() complete');
           this.openSnack('Reset complete!');
           this.ngOnInit();
+          this.router.navigateByUrl('/compare');
           setTimeout(() => {
             this.router.navigateByUrl('/summary');
           }, 500);
