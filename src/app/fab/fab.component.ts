@@ -37,7 +37,6 @@ export class FabComponent {
   }
 
   action (action: string) {
-    console.log('action: ' + action);
     this.result.emit(action);
     this.hideItems();
   }
