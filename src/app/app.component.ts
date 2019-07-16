@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
       if (a.losses === undefined) a.losses= 0;
     });
 
-    console.log('[app] ngInit() arr len: ' + this.albums.length);
+    // console.log('[app] ngInit() arr len: ' + this.albums.length);
 
     this.storageService.storeToLocalStorage(this.albums);
   }
@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
   }
 
   onResult(action: string) {
-    console.log('[app] onResult() res: ' + action);
+    // console.log('[app] onResult() res: ' + action);
     switch (action) {
       case ('reset'):
         return this.resetStorage();
@@ -85,7 +85,7 @@ export class AppComponent implements OnInit {
   }
 
   resetStorage() {
-    console.log('[fab] resetStorage()');
+    // console.log('[app] resetStorage()');
     this.dialog.open(ConfirmComponent, {
       data: { title: 'Reset compares' }
     }).afterClosed().subscribe(result => {
@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
           console.error('[fab] resetStorage() clearFromLocalStorage() error: ' + err);
           this.openSnack('Error with reset!');
         }, () => {
-          console.log('[fab] resetStorage() clearFromLocalStorage() complete');
+          // console.log('[app] resetStorage() clearFromLocalStorage() complete');
           this.openSnack('Reset complete!');
           this.ngOnInit();
           this.router.navigateByUrl('/compare');
