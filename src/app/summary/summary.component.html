@@ -5,8 +5,8 @@
       <div class="overlay">
         <span class="text">
           <p>{{album.title}}</p>
-          <p>{{album.artist}}</p>
-          <p>{{album.year}}</p>
+          <p *ngIf="i<22">{{album.artist}}</p>
+          <p *ngIf="i<22">{{album.year}}</p>
           <p *ngIf="sortPct">Pct: {{getPct(album)}}%</p>
           <p *ngIf="!sortPct">Diff: {{album.wins - album.losses}}</p>
         </span>
