@@ -6,6 +6,7 @@ import { IAlbum } from './shared/models/albums.model';
 import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
 import { ConfirmComponent } from './dialog/confirm/confirm.component';
+import { ListComponent } from './dialog/list/list.component';
 
 @Component({
   selector: 'app-root',
@@ -79,8 +80,10 @@ export class AppComponent implements OnInit {
     switch (action) {
       case ('reset'):
         return this.resetStorage();
+      case ('list'):
+        return this.showListDialog();
       default:
-        return 'n/a';
+      return 'n/a';
     }
   }
 
@@ -106,6 +109,16 @@ export class AppComponent implements OnInit {
         });
       } else {
         this.openSnack('Reset cancelled!');
+      }
+    });
+  }
+
+  showListDialog() {
+    console.log('[app] showListDialog()');
+    this.dialog.open(ListComponent, {
+      data: { title: 'Complete List' }
+    }).afterClosed().subscribe(result => {
+      if (result) {
       }
     });
   }

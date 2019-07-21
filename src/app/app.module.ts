@@ -14,6 +14,7 @@ import { CompareComponent } from './compare/compare.component';
 import { SummaryComponent } from './summary/summary.component';
 import { FabComponent } from './fab/fab.component';
 import { ConfirmComponent } from './dialog/confirm/confirm.component';
+import { ListComponent } from './dialog/list/list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ConfirmComponent } from './dialog/confirm/confirm.component';
     CompareComponent,
     SummaryComponent,
     FabComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +34,12 @@ import { ConfirmComponent } from './dialog/confirm/confirm.component';
     RouterModule.forRoot(AppRoutes)
   ],
   exports: [
-    ConfirmComponent
+    ConfirmComponent,
+    ListComponent
   ],
   entryComponents: [
-    ConfirmComponent
+    ConfirmComponent,
+    ListComponent
   ],
   providers: [
     AlbumsService,

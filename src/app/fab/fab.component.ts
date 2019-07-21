@@ -15,7 +15,8 @@ export class FabComponent {
   @Output() result = new EventEmitter<string>();
 
   fabButtons = [
-    { icon: 'replay', tooltip: 'Reset', action: 'reset' }
+    { icon: 'replay', tooltip: 'Reset', action: 'reset' },
+    { icon: 'list', tooltip: 'List All', action: 'list' }
   ];
   buttons = [];
   fabTogglerState = 'inactive';
