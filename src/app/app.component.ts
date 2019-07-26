@@ -5,8 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAlbum } from './shared/models/albums.model';
 import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
-import { ConfirmComponent } from './dialog/confirm/confirm.component';
-import { ListComponent } from './dialog/list/list.component';
+import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
+import { ListDialogComponent } from './dialog/list/list-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -95,7 +95,7 @@ export class AppComponent implements OnInit {
 
   resetStorage() {
     // console.log('[app] resetStorage()');
-    this.dialog.open(ConfirmComponent, {
+    this.dialog.open(ConfirmDialogComponent, {
       data: { title: 'Reset compares' }
     }).afterClosed().subscribe(result => {
       if (result) {
@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
 
   showListDialog() {
     console.log('[app] showListDialog()');
-    this.dialog.open(ListComponent, {
+    this.dialog.open(ListDialogComponent, {
       data: { title: 'Complete List' }
     }).afterClosed().subscribe(result => {
       if (result) {

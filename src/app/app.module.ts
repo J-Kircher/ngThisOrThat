@@ -13,8 +13,8 @@ import { StorageService } from './service/storage.service';
 import { CompareComponent } from './compare/compare.component';
 import { SummaryComponent } from './summary/summary.component';
 import { FabComponent } from './fab/fab.component';
-import { ConfirmComponent } from './dialog/confirm/confirm.component';
-import { ListComponent } from './dialog/list/list.component';
+import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
+import { ListDialogComponent } from './dialog/list/list-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import { ListComponent } from './dialog/list/list.component';
     CompareComponent,
     SummaryComponent,
     FabComponent,
-    ConfirmComponent,
-    ListComponent
+    ConfirmDialogComponent,
+    ListDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,12 +34,12 @@ import { ListComponent } from './dialog/list/list.component';
     RouterModule.forRoot(AppRoutes)
   ],
   exports: [
-    ConfirmComponent,
-    ListComponent
+    ConfirmDialogComponent,
+    ListDialogComponent
   ],
   entryComponents: [
-    ConfirmComponent,
-    ListComponent
+    ConfirmDialogComponent,
+    ListDialogComponent
   ],
   providers: [
     AlbumsService,

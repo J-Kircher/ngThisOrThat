@@ -5,11 +5,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { StorageService } from '../../service/storage.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: 'app-list-dialog',
+  templateUrl: './list-dialog.component.html',
+  styleUrls: ['./list-dialog.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListDialogComponent implements OnInit {
 
   items: any[];
   dataSource: MatTableDataSource<any>;
@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<ListComponent>,
+    private dialogRef: MatDialogRef<ListDialogComponent>,
     private storageService: StorageService
   ) { }
 
