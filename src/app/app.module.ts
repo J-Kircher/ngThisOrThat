@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
 import { AppRoutes } from './app.routes';
-import { ThisOrThatComponent } from './this-or-that/this-or-that.component';
 import { MyAlbumComponent } from './my-album/my-album.component';
 import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
@@ -19,7 +18,6 @@ import { ListDialogComponent } from './dialog/list/list-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ThisOrThatComponent,
     MyAlbumComponent,
     CompareComponent,
     SummaryComponent,
