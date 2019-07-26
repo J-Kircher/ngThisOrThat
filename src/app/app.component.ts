@@ -41,14 +41,20 @@ export class AppComponent implements OnInit {
       }
     });
 
-    // Remove albums removed from service out of storage
-    this.albums.forEach(a => {
-      const idx = this.findAlbumInArray(a, this.currentAlbums);
-      if (idx === -1) {
-        this.albums.splice(idx, 1);
+    // Get list of removed albums
+    // (albums in storage that are missing from service)
+    const removeIdx = [];
+    this.albums.forEach((a, idx) => {
+      if (this.findAlbumInArray(a, this.currentAlbums) === -1) {
+        removeIdx.push(idx);
       }
     });
+    // Remove albums removed from service out of storage
+    removeIdx.reverse().forEach(idx => {
+      this.albums.splice(idx, 1);
+    });
 
+    // Set up W/L data
     this.albums.forEach(a => {
       if (a.wins === undefined) a.wins = 0;
       if (a.losses === undefined) a.losses= 0;
