@@ -26,6 +26,18 @@ mat-dialog-content {
       .numeric {
         text-align: right;
       }
+      .mat-header-cell, .mat-cell {
+        padding: 0 10px 0 10px;
+      }
+      .mat-row:nth-child(odd) {
+        background-color: lighten(#424242, 70%);
+      }
+      .mat-row:nth-child(even) {
+        background-color: lighten(#424242, 68%);
+      }
+      .mat-row:hover {
+        background-color: lighten(#424242, 65%);
+      }
     }
   }
 }
