@@ -1,7 +1,7 @@
 <div class="main-container" fxLayout="row" fxLayoutAlign="space-around">
   <div fxFlex="15%" fxLayout="column" fxLayoutAlign="start start">
-    <a *ngIf="router.url !== '/compare'" mat-raised-button color="primary" [routerLink]="['/compare']" id="show">Compare</a>
-    <a *ngIf="router.url !== '/summary'" mat-raised-button color="primary" [routerLink]="['/summary']" id="show">Summary</a>
+    <a *ngIf="router.url !== '/albums/compare'" mat-raised-button color="primary" [routerLink]="['/albums/compare']" id="show">Compare</a>
+    <a *ngIf="router.url !== '/albums/summary'" mat-raised-button color="primary" [routerLink]="['/albums/summary']" id="show">Summary</a>
   </div>
   <div fxFlex fxLayout="column" fxLayoutAlign="space-around center">
     <router-outlet #outlet="outlet"></router-outlet>

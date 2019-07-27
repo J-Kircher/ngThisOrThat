@@ -6,11 +6,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
 import { AppRoutes } from './app.routes';
-import { MyAlbumComponent } from './my-album/my-album.component';
 import { AlbumsService } from './service/albums.service';
 import { StorageService } from './service/storage.service';
-import { CompareComponent } from './compare/compare.component';
-import { SummaryComponent } from './summary/summary.component';
 import { FabComponent } from './fab/fab.component';
 import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
 import { ListDialogComponent } from './dialog/list/list-dialog.component';
@@ -18,9 +15,6 @@ import { ListDialogComponent } from './dialog/list/list-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MyAlbumComponent,
-    CompareComponent,
-    SummaryComponent,
     FabComponent,
     ConfirmDialogComponent,
     ListDialogComponent

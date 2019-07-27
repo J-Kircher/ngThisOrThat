@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IAlbum } from '../shared/models/albums.model';
-import { StorageService } from '../service/storage.service';
+import { IAlbum } from '../../shared/models/albums.model';
+import { StorageService } from '../../service/storage.service';
 
 @Component({
   selector: 'app-compare',

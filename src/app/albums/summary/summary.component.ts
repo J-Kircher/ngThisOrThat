@@ -1,8 +1,8 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { IAlbum } from '../shared/models/albums.model';
-import { StorageService } from '../service/storage.service';
-import { sortAlbumsByPercent, sortAlbumsByDifference } from '../shared/sort';
-import { listAnimation } from '../shared/animations';
+import { IAlbum } from '../../shared/models/albums.model';
+import { StorageService } from '../../service/storage.service';
+import { sortAlbumsByPercent, sortAlbumsByDifference } from '../../shared/sort';
+import { listAnimation } from '../../shared/animations';
 
 @Component({
   selector: 'app-summary',
