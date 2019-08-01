@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IAlbum } from '../../shared/models/albums.model';
 import { StorageService } from '../../service/storage.service';
+import { recordAnimation } from '../../shared/animations';
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
-  styleUrls: ['./compare.component.scss']
+  styleUrls: ['./compare.component.scss'],
+  animations: [recordAnimation]
 })
 export class CompareComponent implements OnInit {
 
@@ -13,6 +15,9 @@ export class CompareComponent implements OnInit {
   albumOne: number = null;
   albumTwo: number = null;
   matchCounter = 0;
+
+  show = false;
+  state: string = 'default';
 
   constructor(
     private storageService: StorageService
@@ -24,6 +29,7 @@ export class CompareComponent implements OnInit {
       this.matchCounter += a.wins;
     });
     this.getAlbumsForCompare();
+    setTimeout(() => this.rotate());
   }
 
   getAlbumsForCompare() {
@@ -50,5 +56,21 @@ export class CompareComponent implements OnInit {
     this.matchCounter++;
     this.storageService.storeToLocalStorage(this.albums);
     this.getAlbumsForCompare();
+    setTimeout(() => this.rotate());
   }
+
+  moveimg() {
+    console.log ("Hey, you clicked me!");
+    this.show = !this.show;
+  }
+
+  get stateName() {
+    return this.show ? 'move' : 'hide'
+  }
+
+  rotate() {
+    console.log ("Hey, you rotated me!");
+    this.state = (this.state === 'default' ? 'rotated' : 'default');
+  }
+
 }

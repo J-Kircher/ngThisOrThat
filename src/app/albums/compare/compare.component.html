@@ -1,4 +1,4 @@
-<div>
+<div class="turntable-container">
   <div class="album-container" fxLayout="row" fxLayoutAlign="space-evenly center">
     <app-my-album [albumIdx]="albumOne" (chosen)="onChosen($event)"></app-my-album>
     <app-my-album [albumIdx]="albumTwo" (chosen)="onChosen($event)"></app-my-album>
@@ -7,4 +7,7 @@
     <button mat-raised-button color="primary" (click)="getNewAlbums()">Reset</button>
   </div>
   <div class="counter" fxLayout="row" fxLayoutAlign="space-around center">Counter: {{matchCounter}}</div>
+</div>
+<div class="record-container">
+  <img [@recordAnimations]="state" class="album" fxLayoutAlign="center center" src="/assets/images/BigTenInch.png" height="900px" width="900px">
 </div>

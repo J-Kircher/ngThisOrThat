@@ -1,3 +1,21 @@
+.record-container {
+  position: absolute;
+  top: 200px;
+  left: 33%;
+  z-index: -1;
+  .album {
+    width: 650px;
+    height: 650px;
+  }  
+}
+
+.turntable-container {
+  background-image: url("/assets/images/Turntable.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+
 button {
   margin: 20px;
 }
