@@ -1,5 +1,5 @@
 <div class="summary-container" fxLayout="row" fxLayoutAlign="center">
-  <div fxFlex="10%" fxLayout="column" fxLayoutAlign="start start">
+  <div fxFlex="10%" class="button-container" fxLayout="column" fxLayoutAlign="start start">
     <a *ngIf="router.url !== '/albums/compare'" mat-raised-button color="primary" [routerLink]="['/albums/compare']" id="show">Compare</a>
     <a *ngIf="router.url !== '/albums/summary'" mat-raised-button color="primary" [routerLink]="['/albums/summary']" id="show">Summary</a>
   </div>
@@ -10,8 +10,8 @@
         <div class="overlay">
           <span class="text">
             <p>{{album.title}}</p>
-            <p *ngIf="i<22">{{album.artist}}</p>
-            <p *ngIf="i<22">{{album.year}}</p>
+            <p *ngIf="i<maxInfoAlbums">{{album.artist}}</p>
+            <p *ngIf="i<maxInfoAlbums">{{album.year}}</p>
             <p *ngIf="sortPct">Pct: {{getPct(album)}}%</p>
             <p *ngIf="!sortPct">Diff: {{album.wins - album.losses}}</p>
           </span>

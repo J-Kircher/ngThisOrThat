@@ -1,9 +1,10 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
-import { IAlbum } from '../../shared/models/albums.model';
-import { StorageService } from '../../service/storage.service';
-import { sortAlbumsByPercent, sortAlbumsByDifference } from '../../shared/sort';
-import { listAnimation } from '../../shared/animations';
+
+import { IAlbum } from '@app/shared/models/albums.model';
+import { StorageService } from '@app/service/storage.service';
+import { sortAlbumsByPercent, sortAlbumsByDifference } from '@app/shared/sort';
+import { listAnimation } from '@app/shared/animations';
 
 @Component({
   selector: 'app-summary',
@@ -19,6 +20,7 @@ export class SummaryComponent implements OnInit, DoCheck {
   displayAlbums: IAlbum[];
   sortPct = true;
   maxDisplayAlbums = 42;
+  maxInfoAlbums = 22;
 
   constructor(
     private router: Router,

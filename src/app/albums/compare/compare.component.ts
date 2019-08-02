@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IAlbum } from '../../shared/models/albums.model';
-import { StorageService } from '../../service/storage.service';
-import { recordAnimation } from '../../shared/animations';
+
+import { IAlbum } from '@app/shared/models/albums.model';
+import { StorageService } from '@app/service/storage.service';
+import { recordAnimation } from '@app/shared/animations';
 
 @Component({
   selector: 'app-compare',
