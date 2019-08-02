@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 import { IAlbum } from '../../shared/models/albums.model';
 import { StorageService } from '../../service/storage.service';
 import { sortAlbumsByPercent, sortAlbumsByDifference } from '../../shared/sort';
@@ -20,6 +21,7 @@ export class SummaryComponent implements OnInit, DoCheck {
   maxDisplayAlbums = 42;
 
   constructor(
+    private router: Router,
     private storageService: StorageService
   ) { }
 

@@ -1,13 +1,21 @@
-<div class="turntable-container">
-  <div class="album-container" fxLayout="row" fxLayoutAlign="space-evenly center">
-    <app-my-album [albumIdx]="albumOne" (chosen)="onChosen($event)"></app-my-album>
-    <app-my-album [albumIdx]="albumTwo" (chosen)="onChosen($event)"></app-my-album>
+<div class="compare-container" fxLayout="column" fxLayoutAlign="center">
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <a *ngIf="router.url !== '/albums/compare'" mat-raised-button color="primary" [routerLink]="['/albums/compare']" id="show">Compare</a>
+    <a *ngIf="router.url !== '/albums/summary'" mat-raised-button color="primary" [routerLink]="['/albums/summary']" id="show">Summary</a>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center">
-    <button mat-raised-button color="primary" (click)="getNewAlbums()">Reset</button>
+  <div class="turntable-container">
+    <div class="album-container" fxLayout="row" fxLayoutAlign="space-evenly center">
+      <app-my-album [albumIdx]="albumOne" (chosen)="onChosen($event)"></app-my-album>
+      <app-my-album [albumIdx]="albumTwo" (chosen)="onChosen($event)"></app-my-album>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <button mat-raised-button color="primary" (click)="getNewAlbums()">Reset</button>
+    </div>
+    <div class="counter" fxLayout="row" fxLayoutAlign="space-around center">Counter: {{matchCounter}}</div>
+    <div class="outer-record-container">
+      <div class="inner-record-container">
+        <img class="album" [@recordAnimations]="state" fxLayoutAlign="center center" src="/assets/images/BigTenInch.png">
+      </div>
+    </div>
   </div>
-  <div class="counter" fxLayout="row" fxLayoutAlign="space-around center">Counter: {{matchCounter}}</div>
-</div>
-<div class="record-container">
-  <img [@recordAnimations]="state" class="album" fxLayoutAlign="center center" src="/assets/images/BigTenInch.png" height="900px" width="900px">
 </div>

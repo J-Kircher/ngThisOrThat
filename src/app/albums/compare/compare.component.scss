@@ -1,26 +1,36 @@
-.record-container {
-  position: absolute;
-  top: 200px;
-  left: 33%;
-  z-index: -1;
-  .album {
-    width: 650px;
-    height: 650px;
-  }  
-}
+.compare-container {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
 
-.turntable-container {
-  background-image: url("/assets/images/Turntable.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-}
+  .mat-raised-button {
+    margin: 20px 20px 0px 20px;
+  }
 
-button {
-  margin: 20px;
-}
+  .turntable-container {
+    background-image: url("/assets/images/Turntable.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
 
-.counter {
-  color: rgb(0, 0, 0);
-  text-shadow: 1px 1px 2px rgb(128, 128, 128);
+    .counter {
+      color: rgb(0, 0, 0);
+      text-shadow: 1px 1px 2px rgb(128, 128, 128);
+    }
+
+    .outer-record-container {
+      z-index: -1;
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      .inner-record-container {
+        position: relative;
+        left: -50%;
+        .album {
+          width: 600px;
+          height: 600px;
+        }
+      }
+    }
+  }
 }

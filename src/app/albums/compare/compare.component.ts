@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IAlbum } from '../../shared/models/albums.model';
 import { StorageService } from '../../service/storage.service';
 import { recordAnimation } from '../../shared/animations';
@@ -17,9 +18,10 @@ export class CompareComponent implements OnInit {
   matchCounter = 0;
 
   show = false;
-  state: string = 'default';
+  state = 'default';
 
   constructor(
+    private router: Router,
     private storageService: StorageService
   ) { }
 

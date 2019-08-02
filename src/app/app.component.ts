@@ -29,6 +29,11 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // Check for changes to ALBUMS
+    this.checkAlbums();
+  }
+
+  checkAlbums() {
     this.currentAlbums = this.albumsService.getAlbums();
     this.albums = this.storageService.loadFromLocalStorage();
 
@@ -60,7 +65,7 @@ export class AppComponent implements OnInit {
       if (a.losses === undefined) a.losses= 0;
     });
 
-    // console.log('[app] ngInit() arr len: ' + this.albums.length);
+    // console.log('[app] checkAlbums() arr len: ' + this.albums.length);
 
     this.storageService.storeToLocalStorage(this.albums);
   }
@@ -75,10 +80,6 @@ export class AppComponent implements OnInit {
       }
     });
     return index;
-  }
-
-  toggleCompare() {
-    this.showCompare = !this.showCompare;
   }
 
   onResult(action: string) {
