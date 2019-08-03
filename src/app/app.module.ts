@@ -3,15 +3,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { MaterialModule } from './shared/material.module';
-import { AppRoutes } from './app.routes';
-import { AlbumsService } from './service/albums.service';
-import { ArtistsService } from './service/artists.service';
-import { StorageService } from './service/storage.service';
-import { FabComponent } from './fab/fab.component';
-import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
-import { ListDialogComponent } from './dialog/list/list-dialog.component';
+import { AppComponent } from '@app/app.component';
+import { MaterialModule } from '@app/shared/material.module';
+import { AppRoutes } from '@app/app.routes';
+import { AlbumsService } from '@app/service/albums.service';
+import { ArtistsService } from '@app/service/artists.service';
+import { StorageService } from '@app/service/storage.service';
+import { FabComponent } from '@app/fab/fab.component';
+import { ConfirmDialogComponent } from '@app/dialog/confirm/confirm-dialog.component';
+import { ListDialogComponent } from '@app/dialog/list/list-dialog.component';
 
 @NgModule({
   declarations: [

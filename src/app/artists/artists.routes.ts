@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { CompareComponent } from './compare/compare.component';
-import { SummaryComponent } from './summary/summary.component';
+import { CompareComponent } from '@app/artists/compare/compare.component';
+import { SummaryComponent } from '@app/artists/summary/summary.component';
 
 export const artistRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'compare' },

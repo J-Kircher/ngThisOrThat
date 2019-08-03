@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IAlbum } from './shared/models/albums.model';
-import { IArtist } from './shared/models/artists.model';
-import { AlbumsService } from './service/albums.service';
-import { ArtistsService } from './service/artists.service';
-import { StorageService } from './service/storage.service';
-import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
-import { ListDialogComponent } from './dialog/list/list-dialog.component';
+import { IAlbum } from '@app/shared/models/albums.model';
+import { IArtist } from '@app/shared/models/artists.model';
+import { AlbumsService } from '@app/service/albums.service';
+import { ArtistsService } from '@app/service/artists.service';
+import { StorageService } from '@app/service/storage.service';
+import { ConfirmDialogComponent } from '@app/dialog/confirm/confirm-dialog.component';
+import { ListDialogComponent } from '@app/dialog/list/list-dialog.component';
 
 @Component({
   selector: 'app-root',

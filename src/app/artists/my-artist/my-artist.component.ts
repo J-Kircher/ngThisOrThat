@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { ArtistsService } from '../../service/artists.service';
-import { IArtist } from '../../shared/models/artists.model';
+import { ArtistsService } from '@app/service/artists.service';
+import { IArtist } from '@app/shared/models/artists.model';
 
 @Component({
   selector: 'app-my-artist',

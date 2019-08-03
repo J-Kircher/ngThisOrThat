@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../shared/material.module';
-import { artistRoutes } from './artists.routes';
-import { MyArtistComponent } from './my-artist/my-artist.component';
-import { CompareComponent } from './compare/compare.component';
-import { SummaryComponent } from './summary/summary.component';
+import { MaterialModule } from '@app/shared/material.module';
+import { artistRoutes } from '@app/artists/artists.routes';
+import { MyArtistComponent } from '@app/artists/my-artist/my-artist.component';
+import { CompareComponent } from '@app/artists/compare/compare.component';
+import { SummaryComponent } from '@app/artists/summary/summary.component';
 
 @NgModule({
   declarations: [

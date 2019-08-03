@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IArtist } from '../shared/models/artists.model';
+import { IArtist } from '@app/shared/models/artists.model';
 
 const _ARTISTS: IArtist[] = [
   { 'name': 'AC-DC', 'image': 'ACDC'},

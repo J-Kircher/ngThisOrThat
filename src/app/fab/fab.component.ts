@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { fabAnimations } from './fab.animations';
+import { fabAnimations } from '@app/fab/fab.animations';
 
 @Component({
   selector: 'app-fab',

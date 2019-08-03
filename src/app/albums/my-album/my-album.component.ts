@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { AlbumsService } from '../../service/albums.service';
-import { IAlbum } from '../../shared/models/albums.model';
+import { AlbumsService } from '@app/service/albums.service';
+import { IAlbum } from '@app/shared/models/albums.model';
 
 @Component({
   selector: 'app-my-album',

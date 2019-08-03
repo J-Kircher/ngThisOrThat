@@ -1,4 +1,4 @@
-import { IAlbum } from './models/albums.model';
+import { IAlbum } from '@app/shared/models/albums.model';
 
 export function sortAlbumsByPercent(a1: IAlbum, a2: IAlbum) {
   const a1pct = a1.wins / (a1.wins + a1.losses);

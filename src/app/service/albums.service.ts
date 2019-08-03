@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAlbum } from '../shared/models/albums.model';
+import { IAlbum } from '@app/shared/models/albums.model';
 
 const _ALBUMS: IAlbum[] = [
   { 'artist': 'The Beatles', 'title': 'Revolver', 'year': 1966, 'image': 'BeatlesRevolver' },

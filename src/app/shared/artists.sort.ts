@@ -1,4 +1,4 @@
-import { IArtist } from './models/artists.model';
+import { IArtist } from '@app/shared/models/artists.model';
 
 export function sortArtistsByPercent(a1: IArtist, a2: IArtist) {
   const a1pct = a1.wins / (a1.wins + a1.losses);
