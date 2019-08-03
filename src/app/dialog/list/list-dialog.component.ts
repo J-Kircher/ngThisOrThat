@@ -24,7 +24,7 @@ export class ListDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.items = this.storageService.loadFromLocalStorage();
+    this.items = this.storageService.loadAlbumsFromLocalStorage();
     this.items.forEach(item => {
       item.pct = this.getPct(item);
       item.diff = item.wins - item.losses;

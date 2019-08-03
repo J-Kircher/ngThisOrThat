@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
 import { AppRoutes } from './app.routes';
 import { AlbumsService } from './service/albums.service';
+import { ArtistsService } from './service/artists.service';
 import { StorageService } from './service/storage.service';
 import { FabComponent } from './fab/fab.component';
 import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
@@ -35,6 +36,7 @@ import { ListDialogComponent } from './dialog/list/list-dialog.component';
   ],
   providers: [
     AlbumsService,
+    ArtistsService,
     StorageService
   ],
   bootstrap: [AppComponent]

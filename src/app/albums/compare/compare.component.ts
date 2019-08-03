@@ -27,7 +27,7 @@ export class CompareComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.albums = this.storageService.loadFromLocalStorage();
+    this.albums = this.storageService.loadAlbumsFromLocalStorage();
     this.albums.forEach(a => {
       this.matchCounter += a.wins;
     });
@@ -46,6 +46,7 @@ export class CompareComponent implements OnInit {
     const rnd = Math.floor(Math.random() * max);
     return rnd !== exclude ? rnd : this.getRnd(max, exclude);
   }
+
   getNewAlbums() {
     this.getAlbumsForCompare();
   }
@@ -57,23 +58,20 @@ export class CompareComponent implements OnInit {
     this.albums[winner].wins == null ? this.albums[winner].wins = 1 : this.albums[winner].wins++;
     this.albums[loser].losses == null ? this.albums[loser].losses = 1 : this.albums[loser].losses++;
     this.matchCounter++;
-    this.storageService.storeToLocalStorage(this.albums);
+    this.storageService.storeAlbumsToLocalStorage(this.albums);
     this.getAlbumsForCompare();
     setTimeout(() => this.rotate());
   }
 
   moveimg() {
-    console.log ("Hey, you clicked me!");
     this.show = !this.show;
   }
 
   get stateName() {
-    return this.show ? 'move' : 'hide'
+    return this.show ? 'move' : 'hide';
   }
 
   rotate() {
-    console.log ("Hey, you rotated me!");
     this.state = (this.state === 'default' ? 'rotated' : 'default');
   }
-
 }

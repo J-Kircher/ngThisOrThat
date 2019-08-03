@@ -1,9 +1,9 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { IAlbum } from '@app/shared/models/albums.model';
+import { IArtist } from '@app/shared/models/artists.model';
 import { StorageService } from '@app/service/storage.service';
-import { sortAlbumsByPercent, sortAlbumsByDifference } from '@app/shared/albums.sort';
+import { sortArtistsByPercent, sortArtistsByDifference } from '@app/shared/artists.sort';
 import { listAnimation } from '@app/shared/animations';
 
 @Component({
@@ -14,13 +14,13 @@ import { listAnimation } from '@app/shared/animations';
 })
 export class SummaryComponent implements OnInit, DoCheck {
 
-  albums: IAlbum[];
-  currentAlbums: IAlbum[];
-  sortedAlbums: IAlbum[];
-  displayAlbums: IAlbum[];
+  artists: IArtist[];
+  currentArtists: IArtist[];
+  sortedArtists: IArtist[];
+  displayArtists: IArtist[];
   sortPct = true;
-  maxDisplayAlbums = 42;
-  maxInfoAlbums = 22;
+  maxDisplayArtists = 42;
+  maxInfoArtists = 22;
 
   constructor(
     private router: Router,
@@ -28,20 +28,20 @@ export class SummaryComponent implements OnInit, DoCheck {
   ) { }
 
   ngOnInit() {
-    this.albums = this.storageService.loadAlbumsFromLocalStorage();
+    this.artists = this.storageService.loadArtistsFromLocalStorage();
   }
 
   ngDoCheck() {
-    this.sortedAlbums = JSON.parse(JSON.stringify(this.albums));
+    this.sortedArtists = JSON.parse(JSON.stringify(this.artists));
     if (this.sortPct) {
-      this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByPercent);
+      this.sortedArtists = this.sortedArtists.sort(sortArtistsByPercent);
     } else {
-      this.sortedAlbums = this.sortedAlbums.sort(sortAlbumsByDifference);
+      this.sortedArtists = this.sortedArtists.sort(sortArtistsByDifference);
     }
-    if (this.sortedAlbums.length > this.maxDisplayAlbums) {
-      this.displayAlbums = this.sortedAlbums.splice(0, this.maxDisplayAlbums);
+    if (this.sortedArtists.length > this.maxDisplayArtists) {
+      this.displayArtists = this.sortedArtists.splice(0, this.maxDisplayArtists);
     } else {
-      this.displayAlbums = this.sortedAlbums;
+      this.displayArtists = this.sortedArtists;
     }
   }
 
@@ -60,9 +60,9 @@ export class SummaryComponent implements OnInit, DoCheck {
     this.sortPct = !this.sortPct;
   }
 
-  getPct(album: IAlbum) {
-    const wins = album.wins || 0;
-    const losses = album.losses || 0;
+  getPct(artist: IArtist) {
+    const wins = artist.wins || 0;
+    const losses = artist.losses || 0;
     if ((wins + losses) === 0) {
       return 0;
     } else {
