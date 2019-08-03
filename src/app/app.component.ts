@@ -182,8 +182,9 @@ export class AppComponent implements OnInit {
 
   showListDialog() {
     console.log('[app] showListDialog()');
+    const listToAcquire = this.router.url.split('/')[1];
     this.dialog.open(ListDialogComponent, {
-      data: { title: 'Complete List' }
+      data: { title: 'Complete List', list: listToAcquire }
     }).afterClosed().subscribe(result => {
       if (result) {
       }
