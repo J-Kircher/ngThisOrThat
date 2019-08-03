@@ -156,24 +156,39 @@ export class AppComponent implements OnInit {
       data: { title: 'Reset compares' }
     }).afterClosed().subscribe(result => {
       if (result) {
-        this.storageService.clearAlbumsFromLocalStorage().subscribe(() => {
-          // Do nothing here; wait for complete
-        }, (err) => {
-          console.error('[fab] resetStorage() clearAlbumsFromLocalStorage() error: ' + err);
-          this.openSnack('Error with reset!');
-        }, () => {
-          // console.log('[app] resetStorage() clearAlbumsFromLocalStorage() complete');
-          this.openSnack('Reset complete!');
-          this.ngOnInit();
-          this.router.navigateByUrl('/compare');
-          setTimeout(() => {
-            this.router.navigateByUrl('/summary');
-          }, 500);
-        });
-
-        // Add
-        // this.storageService.clearArtistsFromLocalStorage()
-
+        const listToReset = this.router.url.split('/')[1];
+        if (listToReset === 'albums') {
+          this.storageService.clearAlbumsFromLocalStorage().subscribe(() => {
+            // Do nothing here; wait for complete
+          }, (err) => {
+            console.error('[fab] resetStorage() clearAlbumsFromLocalStorage() error: ' + err);
+            this.openSnack('Error with reset!');
+          }, () => {
+            // console.log('[app] resetStorage() clearAlbumsFromLocalStorage() complete');
+            this.openSnack('Reset complete!');
+            this.ngOnInit();
+            this.router.navigateByUrl('/albums/compare');
+            setTimeout(() => {
+              this.router.navigateByUrl('/albums/summary');
+            }, 500);
+          });
+        }
+        if (listToReset === 'albums') {
+          this.storageService.clearArtistsFromLocalStorage().subscribe(() => {
+            // Do nothing here; wait for complete
+          }, (err) => {
+            console.error('[fab] resetStorage() clearArtistsFromLocalStorage() error: ' + err);
+            this.openSnack('Error with reset!');
+          }, () => {
+            // console.log('[app] resetStorage() clearArtistsFromLocalStorage() complete');
+            this.openSnack('Reset complete!');
+            this.ngOnInit();
+            this.router.navigateByUrl('/artists/compare');
+            setTimeout(() => {
+              this.router.navigateByUrl('/artists/summary');
+            }, 500);
+          });
+        }
       } else {
         this.openSnack('Reset cancelled!');
       }
