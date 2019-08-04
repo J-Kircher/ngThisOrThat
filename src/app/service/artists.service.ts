@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IArtist } from '@app/shared/models/artists.model';
 
 const _ARTISTS: IArtist[] = [
-  { 'name': 'AC-DC', 'image': 'ACDC'},
+  { 'name': 'AC/DC', 'image': 'ACDC'},
   { 'name': 'Aerosmith', 'image': 'Aerosmith'},
   { 'name': 'Alice in Chains', 'image': 'AliceinChains'},
   { 'name': 'American Angel', 'image': 'AmericanAngel'},
@@ -91,7 +91,7 @@ const _ARTISTS: IArtist[] = [
   { 'name': 'White Lion', 'image': 'WhiteLion'},
   { 'name': 'Whitesnake', 'image': 'Whitesnake'},
   { 'name': 'White Zombie', 'image': 'WhiteZombie'},
-  { 'name': 'Who', 'image': 'Who'},
+  { 'name': 'The Who', 'image': 'Who'},
   { 'name': 'Winger', 'image': 'Winger'}
 ];
 
