@@ -10,9 +10,10 @@
   max-height: 400px;
   max-width: 300px;
   // background-color: whitesmoke;
-  font-size: 1.5em;
-  color: rgb(255, 255, 255);
-  text-shadow: 4px 4px 8px rgb(128, 128, 128);
+  font-size: 2em;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-shadow: 4px 4px 8px rgb(255, 255, 255);
   text-align: center;
 }
 
@@ -22,5 +23,6 @@
   // border-color: black;
   height: 300px;
   width: 300px;
-  box-shadow: 0 8px 12px rgb(128, 128, 128), 0 8px 48px rgb(128, 128, 128);
+  // box-shadow: 0 8px 12px rgb(128, 128, 128), 0 8px 48px rgb(128, 128, 128);
+  box-shadow: 0 8px 12px rgb(0, 0, 0), 0 8px 48px rgb(0, 0, 0);
 }
