@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { StorageService } from '../../service/storage.service';
 
@@ -13,6 +14,7 @@ export class ListDialogComponent implements OnInit {
 
   items: any[];
   dataSource: MatTableDataSource<any>;
+  paginator: MatPaginator;
   displayedColumns: string[];
   // @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatSort) sort: MatSort;
@@ -35,6 +37,7 @@ export class ListDialogComponent implements OnInit {
       item.diff = item.wins - item.losses;
     });
     this.dataSource = new MatTableDataSource(JSON.parse(JSON.stringify(this.items)));
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
     this.displayedColumns = Object.keys(this.items[0]);
@@ -48,8 +51,35 @@ export class ListDialogComponent implements OnInit {
     this.removeCol(this.displayedColumns, 'losses');
   }
 
+  // customTrackBy = (i, field) => `${i}${field.image}`;
+  customTrackBy = (i, field) => `${i}${field}`;
+
+  isNumeric(colName: any) {
+    return !isNaN(this.items[0][colName]);
+  }
+
+  getCellHeader = (colName: string) => {
+    return colName.replace(/^\w/, c => c.toLocaleUpperCase());
+  }
+
+  // getCellValue = (item: any[], colName: string): string | number => {
+  //   return item[colName];
+  // }
+
   removeCol(items: string[], item: string) {
     items.splice(items.findIndex(_ => _ === item), 1);
+  }
+
+  get totalEntryCount(): number {
+    return !this.dataSource ? 0 : this.dataSource.data.length;
+  }
+
+  get entryCount(): number {
+    return this.dataSource.filteredData.length;
+  }
+
+  applyFilter = (filterValue: string) => {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   dismiss() {

@@ -16,13 +16,18 @@
 }
 
 mat-dialog-content {
-  .container {
+  .list-filter {
+    font-size: 0.75em;
+  }
+
+  .list-container {
     height: 50vh;
     overflow: auto;
     margin: 4px 0 4px 0;
 
     table {
       width: 100%;
+      height: auto;
       .numeric {
         text-align: right;
       }
@@ -39,6 +44,10 @@ mat-dialog-content {
         background-color: lighten(#424242, 65%);
       }
     }
+  }
+
+  .list-info {
+    font-size: 0.75em;
   }
 }
 
