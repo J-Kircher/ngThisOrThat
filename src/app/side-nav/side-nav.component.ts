@@ -12,8 +12,7 @@ export class SideNavComponent implements OnInit, OnChanges {
   // @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
-  @Input()
-  toggle: boolean; // Request from Fab Component to hide/show
+  @Input() toggle: boolean; // Request from Fab Component to hide/show
 
   constructor(
     private router: Router
