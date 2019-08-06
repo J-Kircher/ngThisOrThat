@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   currentArtists: IArtist[];
   sortedArtists: IArtist[];
   showCompare = true;
+  toggleSide = false;
 
   constructor(
     private router: Router,
@@ -145,6 +146,8 @@ export class AppComponent implements OnInit {
         return this.resetStorage();
       case ('list'):
         return this.showListDialog();
+      case ('menu'):
+        return this.toggleSidenav();
       default:
       return 'n/a';
     }
@@ -204,6 +207,10 @@ export class AppComponent implements OnInit {
       if (result) {
       }
     });
+  }
+
+  toggleSidenav() {
+    this.toggleSide = !this.toggleSide;
   }
 
   openSnack(msg: string) {

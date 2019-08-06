@@ -16,7 +16,8 @@ export class FabComponent {
 
   fabButtons = [
     { icon: 'replay', tooltip: 'Reset', action: 'reset' },
-    { icon: 'list', tooltip: 'List All', action: 'list' }
+    { icon: 'list', tooltip: 'List All', action: 'list' },
+    { icon: 'swap_horiz', tooltip: 'Toggle side menu', action: 'menu' }
   ];
   buttons = [];
   fabTogglerState = 'inactive';
