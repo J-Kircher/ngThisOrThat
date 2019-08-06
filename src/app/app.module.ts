@@ -12,13 +12,15 @@ import { StorageService } from '@app/service/storage.service';
 import { FabComponent } from '@app/fab/fab.component';
 import { ConfirmDialogComponent } from '@app/dialog/confirm/confirm-dialog.component';
 import { ListDialogComponent } from '@app/dialog/list/list-dialog.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FabComponent,
     ConfirmDialogComponent,
-    ListDialogComponent
+    ListDialogComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<mat-sidenav-container class="side-nav-container" fullscreen>
+  <mat-sidenav #sidenav class="side-nav-menu" mode="over">
+    <div fxLayout="column" fxLayoutAlign="start start" fxFlexFill>
+      <div class="side-nav-menu-header" fxLayout="row" fxLayoutAlign="space-between center">
+        <img class="logo" src="/assets/images/BigTenInch.png">
+      </div>
+      <div class="side-nav-menu-content" fxLayout="column" fxLayoutAlign="start">
+        <div class="albums" fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon *ngIf="isActive('albums')" class="side-nav-menu-icon" color="primary">album</mat-icon>
+          <a class="side-nav-menu-item" [ngClass]="{ 'side-nav-active': isActive('albums') }" [routerLink]="['/albums/compare']" (click)="close()">Albums</a>
+        </div>
+        <div class="artists" fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon *ngIf="isActive('artists')" class="side-nav-menu-icon" color="primary">album</mat-icon>
+          <a class="side-nav-menu-item" [ngClass]="{ 'side-nav-active': isActive('artists') }" [routerLink]="['/artists/compare']" (click)="close()">Artists</a>
+        </div>
+      </div>
+      <div class="side-nav-menu-footer">
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="side-nav-content">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
