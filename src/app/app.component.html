@@ -1,4 +1,4 @@
 <div class="main-container" fxLayout="column" fxLayoutAlign="space-around center">
   <app-side-nav [toggle]="toggleSide"></app-side-nav>
-  <app-fab (result)="onResult($event)"></app-fab>
+  <app-fab [items]="fabItems" (result)="onResult($event)"></app-fab>
 </div>

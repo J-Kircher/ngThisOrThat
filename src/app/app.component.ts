@@ -4,9 +4,11 @@ import { MatDialog } from '@angular/material';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAlbum } from '@app/shared/models/albums.model';
 import { IArtist } from '@app/shared/models/artists.model';
+import { FabItems } from '@app/shared/models/fab.model';
 import { AlbumsService } from '@app/service/albums.service';
 import { ArtistsService } from '@app/service/artists.service';
 import { StorageService } from '@app/service/storage.service';
+import { FabService } from '@app/service/fab.service';
 import { ConfirmDialogComponent } from '@app/dialog/confirm/confirm-dialog.component';
 import { ListDialogComponent } from '@app/dialog/list/list-dialog.component';
 
@@ -25,17 +27,22 @@ export class AppComponent implements OnInit {
   sortedArtists: IArtist[];
   showCompare = true;
   toggleSide = false;
+  fabItems: FabItems[];
 
   constructor(
     private router: Router,
     private albumsService: AlbumsService,
     private artistsService: ArtistsService,
     private storageService: StorageService,
+    private fabService: FabService,
     private dialog: MatDialog,
     private snack: MatSnackBar
   ) { }
 
   ngOnInit() {
+    // Get fab buttons
+    this.fabItems = this.fabService.getFabItems();
+
     // Check for changes to ALBUMS
     this.checkAlbums();
 
@@ -176,7 +183,7 @@ export class AppComponent implements OnInit {
             }, 500);
           });
         }
-        if (listToReset === 'albums') {
+        if (listToReset === 'artists') {
           this.storageService.clearArtistsFromLocalStorage().subscribe(() => {
             // Do nothing here; wait for complete
           }, (err) => {

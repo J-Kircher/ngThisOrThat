@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { fabAnimations } from '@app/fab/fab.animations';
+import { FabItems } from '@app/shared/models/fab.model';
 
 @Component({
   selector: 'app-fab',
@@ -14,11 +15,8 @@ export class FabComponent {
 
   @Output() result = new EventEmitter<string>();
 
-  fabButtons = [
-    { icon: 'replay', tooltip: 'Reset', action: 'reset' },
-    { icon: 'list', tooltip: 'List All', action: 'list' },
-    { icon: 'swap_horiz', tooltip: 'Toggle side menu', action: 'menu' }
-  ];
+  @Input() items: FabItems[]; // From App Component init with item list from Fab Service
+
   buttons = [];
   fabTogglerState = 'inactive';
 
@@ -26,7 +24,7 @@ export class FabComponent {
 
   showItems() {
     this.fabTogglerState = 'active';
-    this.buttons = this.fabButtons;
+    this.buttons = this.items;
   }
 
   hideItems() {
