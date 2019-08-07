@@ -57,9 +57,13 @@ export class AppComponent implements OnInit {
     // console.log(this.currentAlbums);
 
     // Add albums added to service into storage
-    this.currentAlbums.forEach(a => {
+    this.currentAlbums.forEach((a, idx) => {
       if (this.findAlbumInArray(a, this.albums) === -1) {
         this.albums.push(a);
+      } else {
+        // If found, then update data from service
+        this.albums[idx].year = a.year;
+        this.albums[idx].image = a.image;
       }
     });
 
@@ -91,7 +95,6 @@ export class AppComponent implements OnInit {
     let index = -1;
     arr.forEach((s, idx) => {
       if (a.artist === s.artist
-        && a.year === s.year
         && a.title === s.title) {
         index = idx;
       }
@@ -106,9 +109,13 @@ export class AppComponent implements OnInit {
     // console.log(this.currentArtists);
 
     // Add artists added to service into storage
-    this.currentArtists.forEach(a => {
+    this.currentArtists.forEach((a, idx) => {
       if (this.findArtistInArray(a, this.artists) === -1) {
         this.artists.push(a);
+      } else {
+        // If found, then update data from service
+        this.artists[idx].genre = a.genre;
+        this.artists[idx].image = a.image;
       }
     });
 
