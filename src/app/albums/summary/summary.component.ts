@@ -1,10 +1,12 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 import { IAlbum } from '@app/shared/models/albums.model';
 import { StorageService } from '@app/service/storage.service';
 import { sortAlbumsByPercent, sortAlbumsByDifference } from '@app/shared/albums.sort';
 import { listAnimation } from '@app/shared/animations';
+import { DetailsDialogComponent } from '@app/dialog/details/details-dialog.component';
 
 @Component({
   selector: 'app-summary',
@@ -24,6 +26,7 @@ export class SummaryComponent implements OnInit, DoCheck {
 
   constructor(
     private router: Router,
+    private dialog: MatDialog,
     private storageService: StorageService
   ) { }
 
@@ -68,5 +71,13 @@ export class SummaryComponent implements OnInit, DoCheck {
     } else {
       return ((wins / (wins + losses)) * 100).toFixed(1);
     }
+  }
+
+  showDetails(album: IAlbum) {
+    this.dialog.open(DetailsDialogComponent, {
+      data: { title: 'Album Details', item: album, type: 'albums' },
+      panelClass: 'details-container',
+      minWidth: '500px'
+    });
   }
 }

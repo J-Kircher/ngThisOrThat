@@ -18,7 +18,7 @@
           [ngStyle]="{ 'direction': isNumeric(col) ? 'rtl' : 'ltr' }">
           {{ getCellHeader(col) }}
         </th>
-        <td mat-cell *matCellDef="let item" [ngClass]="{ 'numeric': isNumeric(col) }"> {{ item[col] }} </td>
+        <td mat-cell *matCellDef="let item" [ngClass]="{ 'numeric': isNumeric(col) }" (click)="showDetails(item)"> {{ item[col] }} </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

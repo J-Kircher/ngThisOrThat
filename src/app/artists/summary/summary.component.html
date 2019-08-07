@@ -7,7 +7,7 @@
     <div class="list-container" fxLayout="row wrap" [@listAnimations]="displayArtists.length">
       <div class="artist" [ngClass]="getRankStyle(i)" *ngFor="let artist of displayArtists; let i = index">
         <img class="photo" src="/assets/images/artists/{{ artist.image }}.png">
-        <div class="overlay">
+        <div class="overlay" (click)="showDetails(artist)">
           <span class="text">
             <p>{{artist.name}}</p>
             <p *ngIf="sortPct">Pct: {{getPct(artist)}}%</p>

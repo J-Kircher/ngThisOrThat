@@ -1,0 +1,17 @@
+<span mat-dialog-title>
+  <div class="title">{{ data.title }}</div>
+  <div class="subtitle">{{ data?.subtitle }}</div>
+</span>
+<mat-dialog-content>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="image-container">
+      <img class="photo" src="/assets/images/{{ data.type }}/{{ dataItem.image }}.png">
+    </div>
+    <div class="data-container" fxLayout="column" fxLayoutAlign="space-between start">
+      <div class="item-container" *ngFor="let col of columns" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="item-title">{{ getColumn(col) }}</div>
+        <div class="item-info">{{ dataItem[col] }}</div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

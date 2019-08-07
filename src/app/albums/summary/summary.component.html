@@ -7,7 +7,7 @@
     <div class="list-container" fxLayout="row wrap" [@listAnimations]="displayAlbums.length">
       <div class="album" [ngClass]="getRankStyle(i)" *ngFor="let album of displayAlbums; let i = index">
         <img class="cover" src="/assets/images/albums/{{ album.image }}.png">
-        <div class="overlay">
+        <div class="overlay" (click)="showDetails(album)">
           <span class="text">
             <p>{{album.title}}</p>
             <p *ngIf="i<maxInfoAlbums">{{album.artist}}</p>

@@ -13,7 +13,8 @@ import { FabService } from '@app/service/fab.service';
 import { FabComponent } from '@app/fab/fab.component';
 import { ConfirmDialogComponent } from '@app/dialog/confirm/confirm-dialog.component';
 import { ListDialogComponent } from '@app/dialog/list/list-dialog.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { SideNavComponent } from '@app/side-nav/side-nav.component';
+import { DetailsDialogComponent } from '@app/dialog/details/details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     FabComponent,
     ConfirmDialogComponent,
     ListDialogComponent,
-    SideNavComponent
+    SideNavComponent,
+    DetailsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +33,13 @@ import { SideNavComponent } from './side-nav/side-nav.component';
   ],
   exports: [
     ConfirmDialogComponent,
-    ListDialogComponent
+    ListDialogComponent,
+    DetailsDialogComponent
   ],
   entryComponents: [
     ConfirmDialogComponent,
-    ListDialogComponent
+    ListDialogComponent,
+    DetailsDialogComponent
   ],
   providers: [
     AlbumsService,

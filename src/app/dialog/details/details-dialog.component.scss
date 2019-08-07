@@ -1,0 +1,48 @@
+.mat-dialog-title {
+  max-width: 350px;
+  margin-bottom: 28px;
+
+  .title {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    line-height: 1.25em;
+    font-size: .8em;
+    font-style: italic;
+  }
+}
+
+mat-dialog-content {
+  .image-container {
+    width: 300px;
+    padding: 8px 16px 12px 8px;
+    .photo {
+      height: 300px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgb(128, 128, 128), 0 4px 16px rgb(128, 128, 128);
+    }
+  }
+
+  .data-container {
+    min-width: 125px;
+    max-width: 300px;
+    margin-left: 12px;
+    .item-container {
+      border-top: 0.5px solid rgb(50, 50, 50);
+      width: 100%;
+      &:last-child {
+        border-bottom: 0.5px solid rgb(50, 50, 50);
+      }
+      .item-title {
+        margin: 12px;
+        font-weight: bold;
+      }
+      .item-info {
+        margin-right: 12px;
+      }
+    }
+  }
+}

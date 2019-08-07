@@ -20,3 +20,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.details-container .mat-dialog-container {
+  background-image: url("/assets/images/Details-bg.png");
+  background-color: rgb(39, 39, 39);
+  color: rgb(226, 226, 226)
+}

@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { StorageService } from '../../service/storage.service';
+import { DetailsDialogComponent } from '@app/dialog/details/details-dialog.component';
 
 @Component({
   selector: 'app-list-dialog',
@@ -20,6 +21,7 @@ export class ListDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<ListDialogComponent>,
+    private dialog: MatDialog,
     private storageService: StorageService
   ) { }
 
@@ -55,7 +57,7 @@ export class ListDialogComponent implements OnInit {
     return !isNaN(this.items[0][colName]);
   }
 
-  getCellHeader = (colName: string) => {
+  getCellHeader(colName: string) {
     return colName.replace(/^\w/, c => c.toLocaleUpperCase());
   }
 
@@ -91,5 +93,14 @@ export class ListDialogComponent implements OnInit {
     } else {
       return ((wins / (wins + losses)) * 100).toFixed(1);
     }
+  }
+
+  showDetails(item: any) {
+    const dialogName = this.data.list.replace(/^\w/, c => c.toLocaleUpperCase()).slice(0, -1) + ' Details';
+    this.dialog.open(DetailsDialogComponent, {
+      data: { title: dialogName, item: item, type: this.data.list },
+      panelClass: 'details-container',
+      minWidth: '500px'
+    });
   }
 }
