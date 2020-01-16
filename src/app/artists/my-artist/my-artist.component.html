@@ -1,5 +1,5 @@
 <div class="container" fxLayout="column" fxLayoutAlign="space-around center">
-  <div class="artist">
+  <div class="artist" (click)="showDetails(artist)">
     <img class="photo" src="/assets/images/artists/{{artist.image}}.png">
     <div>{{artist.name}}</div>
   </div>
