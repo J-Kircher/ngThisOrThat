@@ -4,9 +4,22 @@
     <a *ngIf="router.url !== '/artists/summary'" mat-raised-button color="primary" [routerLink]="['/artists/summary']" id="show">Summary</a>
   </div>
   <div fxFlex="80%">
-    <div class="artist-container" fxLayout="row" fxLayoutAlign="space-evenly center">
-      <app-my-artist [artistIdx]="artistOne" (chosen)="onChosen($event)"></app-my-artist>
-      <app-my-artist [artistIdx]="artistTwo" (chosen)="onChosen($event)"></app-my-artist>
+    <div class="artist-container" fxLayout="row" fxLayoutAlign="space-evenly start">
+      <div>
+        <app-my-artist [artistIdx]="artistOne" (chosen)="onChosen($event)"></app-my-artist>
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+          <button mat-raised-button [color]="checkedOne ? 'accent' : 'primary'" id="checkOne"
+            (click)="toggleArtistLock('toggleOne')">Lock Artist</button>
+          <button mat-raised-button color="primary" [matMenuTriggerFor]="appMenu">Change Artist</button>
+        </div>
+      </div>
+      <div>
+        <app-my-artist [artistIdx]="artistTwo" (chosen)="onChosen($event)"></app-my-artist>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <button mat-raised-button [color]="checkedTwo ? 'accent' : 'primary'" id="checkTwo"
+            (click)="toggleArtistLock('toggleTwo')">Lock Artist</button>
+        </div>
+      </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <button mat-raised-button color="primary" (click)="getNewArtists()">Reset</button>
@@ -15,3 +28,8 @@
   </div>
   <div fxFlex="10%"></div>
 </div>
+
+<mat-menu #appMenu="matMenu" overlapTrigger backdropClass="compare-mat-menu">
+  <button *ngFor="let artist of artists; let i = index" mat-menu-item
+    (click)="changeArtistOne(i)" [disabled]="i === artistOne">{{ artist.name }}</button>
+</mat-menu>

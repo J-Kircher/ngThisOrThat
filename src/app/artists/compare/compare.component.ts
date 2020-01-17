@@ -15,6 +15,8 @@ export class CompareComponent implements OnInit {
   artistOne: number = null;
   artistTwo: number = null;
   matchCounter = 0;
+  checkedOne = false;
+  checkedTwo = false;
 
   constructor(
     private router: Router,
@@ -30,10 +32,12 @@ export class CompareComponent implements OnInit {
   }
 
   getArtistsForCompare() {
-    this.artistOne = this.getRnd(this.artists.length);
-    // console.log('[this-or-that] getArtistsForCompare() artistOne: ' + this.artistOne);
-    this.artistTwo = this.getRnd(this.artists.length, this.artistOne);
-    // console.log('[this-or-that] getArtistsForCompare() artistTwo: ' + this.artistTwo);
+    if (this.artistOne == null || !this.checkedOne) {
+      this.artistOne = this.getRnd(this.artists.length);
+    }
+    if (this.artistTwo == null || !this.checkedTwo) {
+      this.artistTwo = this.getRnd(this.artists.length, this.artistOne);
+    }
   }
 
   getRnd(max: number, exclude: number = null): number {
@@ -43,6 +47,19 @@ export class CompareComponent implements OnInit {
 
   getNewArtists() {
     this.getArtistsForCompare();
+  }
+
+  toggleArtistLock (item: string) {
+    if (item === 'toggleOne') {
+      this.checkedOne = !this.checkedOne;
+    }
+    if (item === 'toggleTwo') {
+      this.checkedTwo = !this.checkedTwo;
+    }
+  }
+
+  changeArtistOne(artistIdx: number) {
+    this.artistOne = artistIdx;
   }
 
   onChosen(artist: number) {

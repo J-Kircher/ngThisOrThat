@@ -26,3 +26,7 @@ body {
   background-color: rgb(39, 39, 39);
   color: rgb(226, 226, 226)
 }
+
+.compare-mat-menu+* .cdk-overlay-pane {
+  max-height: calc(50vh - 48px);
+}
