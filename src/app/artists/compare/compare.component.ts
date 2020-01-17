@@ -16,9 +16,6 @@ export class CompareComponent implements OnInit {
   artistTwo: number = null;
   matchCounter = 0;
 
-  show = false;
-  state = 'default';
-
   constructor(
     private router: Router,
     private storageService: StorageService
@@ -30,7 +27,6 @@ export class CompareComponent implements OnInit {
       this.matchCounter += a.wins;
     });
     this.getArtistsForCompare();
-    setTimeout(() => this.rotate());
   }
 
   getArtistsForCompare() {
@@ -58,18 +54,5 @@ export class CompareComponent implements OnInit {
     this.matchCounter++;
     this.storageService.storeArtistsToLocalStorage(this.artists);
     this.getArtistsForCompare();
-    setTimeout(() => this.rotate());
-  }
-
-  moveimg() {
-    this.show = !this.show;
-  }
-
-  get stateName() {
-    return this.show ? 'move' : 'hide';
-  }
-
-  rotate() {
-    this.state = (this.state === 'default' ? 'rotated' : 'default');
   }
 }
