@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class SideNavComponent implements OnInit, OnChanges {
 
   // @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
 
   @Input() toggle: boolean; // Request from Fab Component to hide/show
 
