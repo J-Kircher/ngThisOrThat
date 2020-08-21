@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, Input, ViewChild, SimpleChange } from '@angular/core';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 
 @Component({
