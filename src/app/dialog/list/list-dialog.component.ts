@@ -15,7 +15,6 @@ export class ListDialogComponent implements OnInit {
   items: any[];
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[];
-  // @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(
