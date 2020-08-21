@@ -74,4 +74,4 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  // Hammerjs is defined in the dependencies of package.json
  // Added hammerjs import here due to console warning:
  //   Could not find HammerJS. Certain Angular Material components may not work correctly.
- import 'hammerjs/hammer';
+//  import 'hammerjs/hammer';
