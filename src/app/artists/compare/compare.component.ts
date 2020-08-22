@@ -19,7 +19,7 @@ export class CompareComponent implements OnInit {
   checkedTwo = false;
 
   constructor(
-    private router: Router,
+    public router: Router,
     private storageService: StorageService
   ) { }
 

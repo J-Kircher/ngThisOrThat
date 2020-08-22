@@ -25,7 +25,7 @@ export class SummaryComponent implements OnInit, DoCheck {
   maxInfoArtists = 22;
 
   constructor(
-    private router: Router,
+    public router: Router,
     private dialog: MatDialog,
     private storageService: StorageService
   ) { }

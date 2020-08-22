@@ -14,7 +14,7 @@ export class SideNavComponent implements OnInit, OnChanges {
   @Input() toggle: boolean; // Request from Fab Component to hide/show
 
   constructor(
-    private router: Router
+    public router: Router
   ) { }
 
   ngOnInit() {

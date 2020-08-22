@@ -22,7 +22,7 @@ export class CompareComponent implements OnInit {
   state = 'default';
 
   constructor(
-    private router: Router,
+    public router: Router,
     private storageService: StorageService
   ) { }
 

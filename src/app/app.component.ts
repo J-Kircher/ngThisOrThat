@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   fabItems: FabItems[];
 
   constructor(
-    private router: Router,
+    public router: Router,
     private albumsService: AlbumsService,
     private artistsService: ArtistsService,
     private storageService: StorageService,
