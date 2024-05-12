@@ -16,13 +16,13 @@ body {
   padding: 0px;
 
   background-color: rgb(39, 39, 39);
-  background-image: url("/assets/images/Wood.png");
+  background-image: url("./assets/images/Wood.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .details-container .mat-dialog-container {
-  background-image: url("/assets/images/Details-bg.png");
+  background-image: url("./assets/images/Details-bg.png");
   background-color: rgb(39, 39, 39);
   color: rgb(226, 226, 226)
 }

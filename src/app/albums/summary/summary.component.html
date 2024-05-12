@@ -6,7 +6,7 @@
   <div fxFlex="80%" fxLayout="column" fxLayoutAlign="center center">
     <div class="list-container" fxLayout="row wrap" [@listAnimations]="displayAlbums.length">
       <div class="album" [ngClass]="getRankStyle(i)" *ngFor="let album of displayAlbums; let i = index">
-        <img class="cover" src="/assets/images/albums/{{ album.image }}.png">
+        <img class="cover" src="./assets/images/albums/{{ album.image }}.png">
         <div class="overlay" (click)="showDetails(album)">
           <span class="text">
             <p>{{album.title}}</p>
